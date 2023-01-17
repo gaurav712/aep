@@ -6,9 +6,10 @@ import MetaDataContext from "@/contexts/MetaDataContext";
 import { SelectionChoicesType, SelectionType } from "@/@types/selection";
 import Header from "@/components/Header";
 import SelectionContext from "@/contexts/SelectionContext";
+import { MetaDataType } from "@/@types/metadata";
 
 const Home = () => {
-  const [metadata, setMetaData] = useState({});
+  const [metadata, setMetaData] = useState<MetaDataType>({});
   const [selectionChoices, setSelectionChoices] =
     useState<SelectionChoicesType>({
       branches: [],

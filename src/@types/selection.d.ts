@@ -1,7 +1,7 @@
 export type SelectionType = {
-  branch: string | null;
-  year: string | null;
-  subject: string | null;
+  branch: string;
+  year: string;
+  subject: string;
 };
 
 export type SelectionChoicesType = {
