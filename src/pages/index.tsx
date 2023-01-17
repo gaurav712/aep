@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Head>
@@ -16,4 +16,6 @@ export default function Home() {
       <main className={styles.container}>Hello World</main>
     </>
   );
-}
+};
+
+export default Home;
