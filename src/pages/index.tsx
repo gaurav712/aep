@@ -5,7 +5,7 @@ import axios from "axios";
 import MetaDataContext from "@/contexts/MetaDataContext";
 
 const Home = () => {
-  const [metadata, setMetaData] = useState<string>("");
+  const [metadata, setMetaData] = useState({});
 
   useEffect(() => {
     const fetchMetadata = async () => {
@@ -13,7 +13,7 @@ const Home = () => {
         const { data } = await axios.get(
           "https://raw.githubusercontent.com/gaurav712/aktu-exam-preparation-repo/main/metadata.json"
         );
-        setMetaData(JSON.stringify(data));
+        setMetaData(data);
       } catch (error) {
         console.log(error);
       }
@@ -34,7 +34,7 @@ const Home = () => {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <main className={styles.container}>{metadata}</main>
+        <main className={styles.container}>{JSON.stringify(metadata)}</main>
       </>
     </MetaDataContext.Provider>
   );
