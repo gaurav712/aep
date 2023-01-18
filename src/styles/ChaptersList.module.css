@@ -1,17 +1,34 @@
 .container {
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 1000;
   height: 100vh;
-  width: 70%;
+  width: 60%;
+  padding: 1rem;
+  transition: all 0.5s;
 }
 
 .hidden {
+  left: calc(-60% - 2rem);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  opacity: 0.65;
+  z-index: 1;
+}
+
+.invisible {
   display: none;
 }
 
 .header {
-  padding: 1rem 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,7 +41,6 @@
 }
 
 .chaptersList {
-  padding: 0.5rem 1rem;
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -33,7 +49,6 @@
 
 .chapterName {
   margin: 0.5rem 0;
-  font-size: 1.25rem;
   cursor: pointer;
   transition: all 0.25s;
 }
