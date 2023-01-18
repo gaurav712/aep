@@ -11,8 +11,21 @@ a {
   text-decoration: none;
 }
 
+table,
+td,
+th {
+  padding: 0.5rem;
+  border-collapse: collapse;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid white;
   }
 }
