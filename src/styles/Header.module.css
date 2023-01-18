@@ -7,7 +7,6 @@
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
-  background-color: #404040;
 }
 
 .collapedContainer {
@@ -30,8 +29,6 @@
    * Credit goes to https://stackoverflow.com/a/67296005
    * for this hack to fix arrow icon
    */
-  background: url("data:image/svg+xml,<svg height='12px' width='12px' viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>")
-    no-repeat;
   background-position: calc(100% - 0.75rem) center !important;
   -moz-appearance: none !important;
   -webkit-appearance: none !important;
@@ -56,12 +53,22 @@
 
 @media (prefers-color-scheme: light) {
   .container {
-    background-color: #eee;
+    background-color: #f2e5bc;
+  }
+
+  .selectPicker {
+    background: url("data:image/svg+xml,<svg height='12px' width='12px' viewBox='0 0 16 16' fill='%23282828' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>")
+      no-repeat;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   .container {
     background-color: #282828;
+  }
+
+  .selectPicker {
+    background: url("data:image/svg+xml,<svg height='12px' width='12px' viewBox='0 0 16 16' fill='%23ebdbb2' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>")
+      no-repeat;
   }
 }
