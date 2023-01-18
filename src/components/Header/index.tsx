@@ -46,8 +46,10 @@ const Header = ({
               handleBranchChange(event.target.value, selectionContext)
             }
           >
-            {branches.map(({ label, value }) => (
-              <option value={value}>{label}</option>
+            {branches.map(({ label, value }, index: number) => (
+              <option key={index} value={value}>
+                {label}
+              </option>
             ))}
           </select>
           <select
@@ -56,8 +58,10 @@ const Header = ({
               handleYearChange(event.target.value, selectionContext)
             }
           >
-            {academicYears.map(({ label, value }) => (
-              <option value={value}>{label}</option>
+            {academicYears.map(({ label, value }, index: number) => (
+              <option key={index} value={value}>
+                {label}
+              </option>
             ))}
           </select>
           <select
@@ -66,8 +70,10 @@ const Header = ({
               handleSubjectChange(event.target.value, selectionContext)
             }
           >
-            {subjects.map(({ label, value }) => (
-              <option value={value}>{label}</option>
+            {subjects.map(({ label, value }, index: number) => (
+              <option key={index} value={value}>
+                {label}
+              </option>
             ))}
           </select>
         </div>
