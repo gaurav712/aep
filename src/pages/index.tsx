@@ -8,6 +8,8 @@ import Header from "@/components/Header";
 import SelectionContext from "@/contexts/SelectionContext";
 import { MetaDataType } from "@/@types/metadata";
 import ChaptersList from "@/components/ChaptersList";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const Home = () => {
   const [metadata, setMetaData] = useState<MetaDataType>({});
@@ -25,6 +27,7 @@ const Home = () => {
     chapter: "",
   });
   const [sidebarExpanded, setSidebarExpanded] = useState<boolean>(false);
+  const [markdownText, setMarkdownText] = useState<string>("");
 
   const handleSidebarExpand = () => {
     setSidebarExpanded(true);
@@ -127,6 +130,29 @@ const Home = () => {
     }
   }, [selection.subject]);
 
+  /* Update the markdown when chapter is changed */
+  useEffect(() => {
+    const fetchMarkdown = async () => {
+      try {
+        const chapter =
+          metadata[selection.branch][selection.year][selection.subject][
+            selection.chapter
+          ];
+        if (chapter) {
+          console.log(chapter);
+          const { data } = await axios.get(
+            `https://raw.githubusercontent.com/gaurav712/aktu-exam-preparation-repo/main/${chapter}`
+          );
+          setMarkdownText(data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchMarkdown();
+  }, [selection.chapter]);
+
   return (
     <MetaDataContext.Provider value={{ metadata, setMetaData }}>
       <SelectionContext.Provider value={{ selection, setSelection }}>
@@ -153,7 +179,10 @@ const Home = () => {
             handleCollapse={handleSidebarCollapse}
           />
           <main className={styles.container}>
-            <>{selection.chapter}</>
+            <ReactMarkdown
+              children={markdownText}
+              remarkPlugins={[remarkGfm]}
+            />
           </main>
         </>
       </SelectionContext.Provider>
