@@ -46,7 +46,8 @@ const ChaptersList = ({
               className={styles.chapterName}
               onClick={() => handleChapterClicked(chapterName)}
             >
-              {chapterName}
+              <div className={styles.chapterNum}>{`${index + 1}.`}</div>
+              <div>{chapterName}</div>
             </div>
           ))}
         </div>

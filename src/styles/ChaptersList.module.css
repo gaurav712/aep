@@ -44,10 +44,11 @@
   display: flex;
   height: 100%;
   flex-direction: column;
-  justify-content: center;
+  padding: 1rem 0;
 }
 
 .chapterName {
+  display: flex;
   margin: 0.5rem 0;
   cursor: pointer;
   transition: all 0.25s;
@@ -55,6 +56,11 @@
 
 .chapterName:hover {
   padding-left: 0.5rem;
+}
+
+.chapterNum {
+  margin-right: 0.25rem;
+  font-weight: bold;
 }
 
 @media (prefers-color-scheme: light) {
