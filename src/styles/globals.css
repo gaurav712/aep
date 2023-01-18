@@ -18,6 +18,22 @@ th {
   border-collapse: collapse;
 }
 
+@media (prefers-color-scheme: light) {
+  html {
+    color-scheme: light;
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid black;
+  }
+
+  svg {
+    fill: black;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -27,5 +43,9 @@ th {
   th,
   td {
     border: 1px solid white;
+  }
+
+  svg {
+    fill: white;
   }
 }

@@ -50,9 +50,18 @@
   cursor: pointer;
 }
 
+.selectPicker {
+  border: 1px solid grey;
+}
+
+@media (prefers-color-scheme: light) {
+  .container {
+    background-color: #eee;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
-  .selectPicker {
-    color: white;
-    border: 1px solid grey;
+  .container {
+    background-color: #282828;
   }
 }
