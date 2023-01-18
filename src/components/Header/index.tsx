@@ -33,7 +33,10 @@ const Header = ({
     subject: string,
     selectionContext: SelectionContextType | null
   ) => {
-    console.log(subject);
+    selectionContext?.setSelection({
+      ...selectionContext.selection,
+      subject,
+    });
   };
 
   return (

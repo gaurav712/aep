@@ -20,6 +20,7 @@ const Home = () => {
     branch: "",
     year: "",
     subject: "",
+    chapters: [],
   });
 
   useEffect(() => {
@@ -72,15 +73,6 @@ const Home = () => {
         ],
       });
     }
-
-    /* Reset academic years and subjects when branch is invalid/blank */
-    if (!selection.branch) {
-      setSelectionChoices({
-        ...selectionChoices,
-        academicYears: [{ label: "Select the academic year", value: "" }],
-        subjects: [{ label: "Choose the subject", value: "" }],
-      });
-    }
   }, [selection.branch]);
 
   /* get subjects on academic year update */
@@ -103,6 +95,26 @@ const Home = () => {
     }
   }, [selection.year]);
 
+  useEffect(() => {
+    if (selection.subject) {
+      const chapters = Object.keys(
+        metadata[selection.branch][selection.year][selection.subject]
+      );
+      setSelection({
+        ...selection,
+        chapters: chapters.map((chapterName: string) => {
+          return {
+            chapterName,
+            contentUri:
+              metadata[selection.branch][selection.year][selection.subject][
+                chapterName
+              ],
+          };
+        }),
+      });
+    }
+  }, [selection.subject]);
+
   return (
     <MetaDataContext.Provider value={{ metadata, setMetaData }}>
       <SelectionContext.Provider value={{ selection, setSelection }}>
@@ -121,7 +133,7 @@ const Home = () => {
           </Head>
           <Header {...selectionChoices} />
           <main className={styles.container}>
-            <></>
+            <>{JSON.stringify(selection.chapters, null, 2)}</>
           </main>
         </>
       </SelectionContext.Provider>
