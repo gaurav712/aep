@@ -66,11 +66,7 @@ const Header = ({
     <SelectionContext.Consumer>
       {(selectionContext) => (
         <>
-          <div
-            className={
-              headerExpanded ? styles.hidden : styles.collapedContainer
-            }
-          >
+          <div className={styles.collapedContainer}>
             <svg
               className={styles.expandIcon}
               onClick={sidebarExpandHandler}
