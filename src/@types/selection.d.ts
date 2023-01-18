@@ -1,13 +1,8 @@
-export interface IChapter {
-  chapterName: string;
-  contentUri: string;
-}
-
 export type SelectionType = {
   branch: string;
   year: string;
   subject: string;
-  chapters: IChapter[];
+  chapter: string;
 };
 
 export interface ISelectOption {
@@ -15,8 +10,14 @@ export interface ISelectOption {
   value: string;
 }
 
+export interface IChapter {
+  chapterName: string;
+  contentUri: string;
+}
+
 export type SelectionChoicesType = {
   branches: ISelectOption[];
   academicYears: ISelectOption[];
   subjects: ISelectOption[];
+  chapters: IChapter[];
 };

@@ -16,12 +16,13 @@ const Home = () => {
       branches: [{ label: "Select your branch", value: "" }],
       academicYears: [{ label: "Select the academic year", value: "" }],
       subjects: [{ label: "Choose the subject", value: "" }],
+      chapters: [],
     });
   const [selection, setSelection] = useState<SelectionType>({
     branch: "",
     year: "",
     subject: "",
-    chapters: [],
+    chapter: "",
   });
   const [sidebarExpanded, setSidebarExpanded] = useState<boolean>(false);
 
@@ -111,8 +112,8 @@ const Home = () => {
       const chapters = Object.keys(
         metadata[selection.branch][selection.year][selection.subject]
       );
-      setSelection({
-        ...selection,
+      setSelectionChoices({
+        ...selectionChoices,
         chapters: chapters.map((chapterName: string) => {
           return {
             chapterName,
@@ -147,12 +148,12 @@ const Home = () => {
             sidebarExpandHandler={handleSidebarExpand}
           />
           <ChaptersList
-            chapters={selection.chapters}
+            chapters={selectionChoices.chapters}
             expanded={sidebarExpanded}
             handleCollapse={handleSidebarCollapse}
           />
           <main className={styles.container}>
-            <>{JSON.stringify(selection.chapters, null, 2)}</>
+            <>{selection.chapter}</>
           </main>
         </>
       </SelectionContext.Provider>

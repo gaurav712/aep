@@ -35,4 +35,10 @@
 .chapterName {
   margin: 0.5rem 0;
   font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.chapterName:hover {
+  padding-left: 0.5rem;
 }

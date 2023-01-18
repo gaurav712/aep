@@ -1,5 +1,7 @@
 import { IChapter } from "@/@types/selection";
+import SelectionContext from "@/contexts/SelectionContext";
 import styles from "@/styles/ChaptersList.module.css";
+import { useContext } from "react";
 
 const ChaptersList = ({
   chapters,
@@ -10,6 +12,13 @@ const ChaptersList = ({
   expanded?: boolean;
   handleCollapse: () => void;
 }) => {
+  const selectionContext = useContext(SelectionContext);
+
+  const handleChapterClicked = (chapter: string) => {
+    selectionContext?.setSelection({ ...selectionContext.selection, chapter });
+    handleCollapse();
+  };
+
   return (
     <div className={expanded ? styles.container : styles.hidden}>
       <div className={styles.header}>
@@ -28,7 +37,11 @@ const ChaptersList = ({
       </div>
       <div className={styles.chaptersList}>
         {chapters.map(({ chapterName }, index: number) => (
-          <div key={index} className={styles.chapterName}>
+          <div
+            key={index}
+            className={styles.chapterName}
+            onClick={() => handleChapterClicked(chapterName)}
+          >
             {chapterName}
           </div>
         ))}
