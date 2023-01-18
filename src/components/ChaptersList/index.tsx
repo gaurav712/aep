@@ -43,7 +43,11 @@ const ChaptersList = ({
           {chapters.map(({ chapterName }, index: number) => (
             <div
               key={index}
-              className={styles.chapterName}
+              className={
+                selectionContext?.selection.chapter === chapterName
+                  ? `${styles.chapterName} ${styles.chapterNameSelected}`
+                  : styles.chapterName
+              }
               onClick={() => handleChapterClicked(chapterName)}
             >
               <div className={styles.chapterNum}>{`${index + 1}.`}</div>

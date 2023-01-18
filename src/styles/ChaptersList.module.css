@@ -49,13 +49,21 @@
 
 .chapterName {
   display: flex;
-  margin: 0.5rem 0;
+  margin: 0.25rem 0;
+  padding: 0.25rem 0;
   cursor: pointer;
   transition: all 0.25s;
 }
 
 .chapterName:hover {
   padding-left: 0.5rem;
+}
+
+.chapterNameSelected {
+  background-color: #0005;
+  border-left: 0.2rem solid;
+  padding-left: 0.5rem;
+  margin-left: -0.75rem;
 }
 
 .chapterNum {
