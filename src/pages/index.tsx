@@ -12,9 +12,9 @@ const Home = () => {
   const [metadata, setMetaData] = useState<MetaDataType>({});
   const [selectionChoices, setSelectionChoices] =
     useState<SelectionChoicesType>({
-      branches: [],
-      academicYears: [],
-      subjects: [],
+      branches: [{ label: "Select your branch", value: "" }],
+      academicYears: [{ label: "Select the academic year", value: "" }],
+      subjects: [{ label: "Choose the subject", value: "" }],
     });
   const [selection, setSelection] = useState<SelectionType>({
     branch: "",
