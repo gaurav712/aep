@@ -41,6 +41,7 @@ const Header = ({
       {(selectionContext) => (
         <div className={styles.container}>
           <select
+            className={styles.selectPicker}
             onChange={(event: ChangeEvent<HTMLSelectElement>) =>
               handleBranchChange(event.target.value, selectionContext)
             }
@@ -50,6 +51,7 @@ const Header = ({
             ))}
           </select>
           <select
+            className={styles.selectPicker}
             onChange={(event: ChangeEvent<HTMLSelectElement>) =>
               handleYearChange(event.target.value, selectionContext)
             }
@@ -59,6 +61,7 @@ const Header = ({
             ))}
           </select>
           <select
+            className={styles.selectPicker}
             onChange={(event: ChangeEvent<HTMLSelectElement>) =>
               handleSubjectChange(event.target.value, selectionContext)
             }
