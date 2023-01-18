@@ -1,5 +1,5 @@
 import { SelectionContextType } from "@/@types/contexts/selection";
-import { SelectionChoicesType } from "@/@types/selection";
+import { ISelectOption } from "@/@types/selection";
 import SelectionContext from "@/contexts/SelectionContext";
 import styles from "@/styles/Header.module.css";
 import { ChangeEvent, useState } from "react";
@@ -8,7 +8,13 @@ const Header = ({
   branches,
   academicYears,
   subjects,
-}: SelectionChoicesType) => {
+  sidebarExpandHandler = () => {},
+}: {
+  branches: ISelectOption[];
+  academicYears: ISelectOption[];
+  subjects: ISelectOption[];
+  sidebarExpandHandler?: () => void;
+}) => {
   const [headerExpanded, setHeaderExpanded] = useState<boolean>(true);
 
   const handleBranchChange = (
@@ -39,9 +45,14 @@ const Header = ({
       ...selectionContext.selection,
       subject,
     });
-  };
 
-  const handleChapterExpand = () => {};
+    /*
+     * Pop the sidebar open when subject selection is changed
+     * and hide the header
+     */
+    sidebarExpandHandler();
+    handleCollapse();
+  };
 
   const handleExpand = () => {
     setHeaderExpanded(true);
@@ -61,7 +72,7 @@ const Header = ({
             }
           >
             <svg
-              onClick={handleChapterExpand}
+              onClick={sidebarExpandHandler}
               height="20"
               width="20"
               viewBox="0 0 48 48"

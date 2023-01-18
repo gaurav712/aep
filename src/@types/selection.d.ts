@@ -1,4 +1,4 @@
-interface IChapter {
+export interface IChapter {
   chapterName: string;
   contentUri: string;
 }
@@ -10,7 +10,7 @@ export type SelectionType = {
   chapters: IChapter[];
 };
 
-interface ISelectOption {
+export interface ISelectOption {
   label: string;
   value: string;
 }

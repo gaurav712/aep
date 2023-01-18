@@ -7,6 +7,7 @@ import { SelectionChoicesType, SelectionType } from "@/@types/selection";
 import Header from "@/components/Header";
 import SelectionContext from "@/contexts/SelectionContext";
 import { MetaDataType } from "@/@types/metadata";
+import ChaptersList from "@/components/ChaptersList";
 
 const Home = () => {
   const [metadata, setMetaData] = useState<MetaDataType>({});
@@ -22,6 +23,15 @@ const Home = () => {
     subject: "",
     chapters: [],
   });
+  const [sidebarExpanded, setSidebarExpanded] = useState<boolean>(false);
+
+  const handleSidebarExpand = () => {
+    setSidebarExpanded(true);
+  };
+
+  const handleSidebarCollapse = () => {
+    setSidebarExpanded(false);
+  };
 
   useEffect(() => {
     const fetchMetadata = async () => {
@@ -132,7 +142,15 @@ const Home = () => {
             />
             <link rel="icon" href="/favicon.ico" />
           </Head>
-          <Header {...selectionChoices} />
+          <Header
+            {...selectionChoices}
+            sidebarExpandHandler={handleSidebarExpand}
+          />
+          <ChaptersList
+            chapters={selection.chapters}
+            expanded={sidebarExpanded}
+            handleCollapse={handleSidebarCollapse}
+          />
           <main className={styles.container}>
             <>{JSON.stringify(selection.chapters, null, 2)}</>
           </main>
