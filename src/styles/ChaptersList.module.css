@@ -4,7 +4,7 @@
   z-index: 1000;
   height: 100vh;
   width: 70%;
-  background-color: grey;
+  background-color: #404040;
 }
 
 .hidden {
@@ -15,4 +15,19 @@
   padding: 0.5rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.chaptersList {
+  padding: 0.5rem 1rem;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.chapterName {
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
 }
