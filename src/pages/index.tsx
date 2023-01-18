@@ -95,6 +95,7 @@ const Home = () => {
     }
   }, [selection.year]);
 
+  /* Get chapters list when subject selection is changed */
   useEffect(() => {
     if (selection.subject) {
       const chapters = Object.keys(
