@@ -12,11 +12,16 @@
 }
 
 .header {
-  padding: 0.5rem;
+  padding: 1rem 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 2rem;
+}
+
+.collapseIcon {
+  transform: rotate(90deg);
+  cursor: pointer;
 }
 
 .chaptersList {

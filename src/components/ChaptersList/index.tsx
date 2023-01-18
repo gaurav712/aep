@@ -15,13 +15,15 @@ const ChaptersList = ({
       <div className={styles.header}>
         <>Chapters</>
         <svg
+          className={styles.collapseIcon}
           onClick={handleCollapse}
           height="30px"
           width="30px"
-          viewBox="0 0 48 48"
-          fill="#ffffff"
+          viewBox="0 0 16 16"
+          fill="white"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z" />
+          <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
         </svg>
       </div>
       <div className={styles.chaptersList}>

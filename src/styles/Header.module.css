@@ -39,10 +39,15 @@
   padding-right: 2rem !important;
 }
 
+.expandIcon {
+  cursor: pointer;
+}
+
 .collapseIcon {
   margin: 0.5rem auto;
   align-self: center;
   transform: rotate(180deg);
+  cursor: pointer;
 }
 
 @media (prefers-color-scheme: dark) {

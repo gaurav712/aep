@@ -72,9 +72,10 @@ const Header = ({
             }
           >
             <svg
+              className={styles.expandIcon}
               onClick={sidebarExpandHandler}
-              height="20"
-              width="20"
+              height="30px"
+              width="30px"
               viewBox="0 0 48 48"
               fill="#ffffff"
             >
@@ -83,8 +84,8 @@ const Header = ({
             <svg
               className={styles.expandIcon}
               onClick={handleExpand}
-              height="20px"
-              width="20px"
+              height="30px"
+              width="30px"
               viewBox="0 0 16 16"
               fill="white"
               xmlns="http://www.w3.org/2000/svg"
@@ -132,8 +133,8 @@ const Header = ({
             <svg
               className={styles.collapseIcon}
               onClick={handleCollapse}
-              height="20px"
-              width="20px"
+              height="30px"
+              width="30px"
               viewBox="0 0 16 16"
               fill="white"
               xmlns="http://www.w3.org/2000/svg"
