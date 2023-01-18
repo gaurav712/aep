@@ -23,14 +23,19 @@ th {
     color-scheme: light;
   }
 
+  body {
+    color: #3c3836;
+    background-color: #f2e5bc;
+  }
+
   table,
   th,
   td {
-    border: 1px solid black;
+    border: 1px solid #928374;
   }
 
   svg {
-    fill: black;
+    fill: #282828;
   }
 }
 
@@ -39,13 +44,18 @@ th {
     color-scheme: dark;
   }
 
+  body {
+    color: #ebdbb2;
+    background-color: #282828;
+  }
+
   table,
   th,
   td {
-    border: 1px solid white;
+    border: 1px solid #a89984;
   }
 
   svg {
-    fill: white;
+    fill: #ebdbb2;
   }
 }
