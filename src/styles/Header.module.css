@@ -5,6 +5,16 @@
   flex-direction: column;
 }
 
+.collapedContainer {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hidden {
+  display: none;
+}
+
 .selectPicker {
   margin: 0.5rem 0;
   padding: 0.25rem 0.5rem;
@@ -22,6 +32,12 @@
   -webkit-appearance: none !important;
   appearance: none !important;
   padding-right: 2rem !important;
+}
+
+.collapseIcon {
+  margin: 0.5rem auto;
+  align-self: center;
+  transform: rotate(180deg);
 }
 
 @media (prefers-color-scheme: dark) {
