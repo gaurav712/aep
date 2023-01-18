@@ -4,8 +4,13 @@ export type SelectionType = {
   subject: string;
 };
 
+interface ISelectOption {
+  label: string;
+  value: string;
+}
+
 export type SelectionChoicesType = {
-  branches: string[];
-  academicYears: string[];
-  subjects: string[];
+  branches: ISelectOption[];
+  academicYears: ISelectOption[];
+  subjects: ISelectOption[];
 };

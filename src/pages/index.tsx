@@ -42,7 +42,15 @@ const Home = () => {
     if (metadata)
       setSelectionChoices({
         ...selectionChoices,
-        branches: Object.keys(metadata),
+        branches: [
+          { label: "Select your branch", value: "" },
+          ...Object.keys(metadata).map((branch: string) => {
+            return {
+              value: branch,
+              label: branch,
+            };
+          }),
+        ],
       });
   }, [metadata]);
 
@@ -51,7 +59,26 @@ const Home = () => {
     if (selection.branch && metadata[selection.branch]) {
       setSelectionChoices({
         ...selectionChoices,
-        academicYears: Object.keys(metadata[selection.branch]),
+        academicYears: [
+          { label: "Select the academic year", value: "" },
+          ...Object.keys(metadata[selection.branch]).map(
+            (academicYear: string) => {
+              return {
+                value: academicYear,
+                label: academicYear,
+              };
+            }
+          ),
+        ],
+      });
+    }
+
+    /* Reset academic years and subjects when branch is invalid/blank */
+    if (!selection.branch) {
+      setSelectionChoices({
+        ...selectionChoices,
+        academicYears: [{ label: "Select the academic year", value: "" }],
+        subjects: [{ label: "Choose the subject", value: "" }],
       });
     }
   }, [selection.branch]);
@@ -61,7 +88,17 @@ const Home = () => {
     if (selection.year && metadata[selection.branch][selection.year]) {
       setSelectionChoices({
         ...selectionChoices,
-        subjects: Object.keys(metadata[selection.branch][selection.year]),
+        subjects: [
+          { label: "Choose the subject", value: "" },
+          ...Object.keys(metadata[selection.branch][selection.year]).map(
+            (subject: string) => {
+              return {
+                value: subject,
+                label: subject,
+              };
+            }
+          ),
+        ],
       });
     }
   }, [selection.year]);
