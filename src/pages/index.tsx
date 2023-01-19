@@ -185,10 +185,9 @@ const Home = () => {
             handleCollapse={handleSidebarCollapse}
           />
           <main className={styles.container}>
-            <ReactMarkdown
-              children={markdownText}
-              remarkPlugins={[remarkGfm]}
-            />
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {markdownText}
+            </ReactMarkdown>
           </main>
         </>
       </SelectionContext.Provider>
