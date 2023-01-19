@@ -10,9 +10,11 @@ import { MetaDataType } from "@/@types/metadata";
 import ChaptersList from "@/components/ChaptersList";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import Loader from "@/components/Loader";
 
 const Home = () => {
   const [metadata, setMetaData] = useState<MetaDataType>({});
+  const [fetching, setFetching] = useState<boolean>(false);
   const [selectionChoices, setSelectionChoices] =
     useState<SelectionChoicesType>({
       branches: [{ label: "Select your branch", value: "" }],
@@ -39,6 +41,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchMetadata = async () => {
+      setFetching(true);
       try {
         const { data } = await axios.get(
           "https://raw.githubusercontent.com/gaurav712/aktu-exam-preparation-repo/main/metadata.json"
@@ -47,6 +50,7 @@ const Home = () => {
       } catch (error) {
         console.log(error);
       }
+      setFetching(false);
     };
 
     fetchMetadata();
@@ -156,34 +160,38 @@ const Home = () => {
   return (
     <MetaDataContext.Provider value={{ metadata, setMetaData }}>
       <SelectionContext.Provider value={{ selection, setSelection }}>
-        <>
-          <Head>
-            <title>AKTU Exam Preparation</title>
-            <meta
-              name="description"
-              content="Website to help you with AKTU Exam Preparations"
+        {fetching ? (
+          <Loader />
+        ) : (
+          <>
+            <Head>
+              <title>AKTU Exam Preparation</title>
+              <meta
+                name="description"
+                content="Website to help you with AKTU Exam Preparations"
+              />
+              <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1"
+              />
+              <link rel="icon" href="/favicon.ico" />
+            </Head>
+            <Header
+              {...selectionChoices}
+              sidebarExpandHandler={handleSidebarExpand}
             />
-            <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1"
+            <ChaptersList
+              chapters={selectionChoices.chapters}
+              expanded={sidebarExpanded}
+              handleCollapse={handleSidebarCollapse}
             />
-            <link rel="icon" href="/favicon.ico" />
-          </Head>
-          <Header
-            {...selectionChoices}
-            sidebarExpandHandler={handleSidebarExpand}
-          />
-          <ChaptersList
-            chapters={selectionChoices.chapters}
-            expanded={sidebarExpanded}
-            handleCollapse={handleSidebarCollapse}
-          />
-          <main className={styles.container}>
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-              {markdownText}
-            </ReactMarkdown>
-          </main>
-        </>
+            <main className={styles.container}>
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                {markdownText}
+              </ReactMarkdown>
+            </main>
+          </>
+        )}
       </SelectionContext.Provider>
     </MetaDataContext.Provider>
   );
