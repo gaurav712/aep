@@ -9,3 +9,14 @@
   top: 50vh;
   text-align: center;
 }
+
+@media (min-width: 850px) {
+  .container {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    height: calc(100vh - 5rem);
+    width: 70%;
+    overflow-y: scroll;
+  }
+}

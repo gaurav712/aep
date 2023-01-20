@@ -90,3 +90,28 @@
       no-repeat;
   }
 }
+
+@media (min-width: 850px) {
+  .container {
+    top: 0 !important;
+    border: unset;
+    flex-direction: unset;
+    justify-content: space-between;
+    padding: 0.5rem 10%;
+    margin: auto;
+  }
+
+  .selectPicker {
+    width: 30%;
+  }
+
+  .overlay {
+    display: none;
+  }
+
+  .collapseIcon,
+  .expandIcon,
+  .collapedContainer {
+    display: none;
+  }
+}
