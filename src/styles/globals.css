@@ -64,3 +64,29 @@ th {
     fill: #ebdbb2;
   }
 }
+
+/* To disable the ability to print */
+@media screen {
+  .print-not-allowed {
+    display: none;
+  }
+}
+
+@media print {
+  main,
+  .container,
+  svg {
+    display: none;
+  }
+  .print-not-allowed {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

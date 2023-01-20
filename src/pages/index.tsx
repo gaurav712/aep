@@ -133,6 +133,9 @@ const Home = () => {
   return (
     <SelectionContext.Provider value={{ selection, setSelection }}>
       <>
+        <div className="print-not-allowed">
+          Printing this content is disallowed!
+        </div>
         <Head>
           <title>AKTU Exam Preparation</title>
           <meta
