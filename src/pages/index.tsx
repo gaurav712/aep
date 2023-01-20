@@ -1,18 +1,15 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { SelectionChoicesType, SelectionType } from "@/@types/selection";
 import Header from "@/components/Header";
 import SelectionContext from "@/contexts/SelectionContext";
 import ChaptersList from "@/components/ChaptersList";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import Loader from "@/components/Loader";
-import metadata from "@/metadata";
+import metadata from "@/assets/metadata";
 
 const Home = () => {
-  const [fetching, setFetching] = useState<boolean>(false);
   const [selectionChoices, setSelectionChoices] =
     useState<SelectionChoicesType>({
       branches: [{ label: "Select your branch", value: "" }],
@@ -123,13 +120,8 @@ const Home = () => {
           metadata[selection.branch][selection.year][selection.subject][
             selection.chapter
           ];
-        if (chapter) {
-          console.log(chapter);
-          const { data } = await axios.get(
-            `https://raw.githubusercontent.com/gaurav712/aktu-exam-preparation-repo/main/${chapter}`
-          );
-          setMarkdownText(data);
-        }
+        const data = require(`../assets${chapter}`);
+        setMarkdownText(data.default);
       } catch (error) {
         console.log(error);
       }
@@ -140,38 +132,31 @@ const Home = () => {
 
   return (
     <SelectionContext.Provider value={{ selection, setSelection }}>
-      {fetching ? (
-        <Loader />
-      ) : (
-        <>
-          <Head>
-            <title>AKTU Exam Preparation</title>
-            <meta
-              name="description"
-              content="Website to help you with AKTU Exam Preparations"
-            />
-            <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1"
-            />
-            <link rel="icon" href="/favicon.ico" />
-          </Head>
-          <Header
-            {...selectionChoices}
-            sidebarExpandHandler={handleSidebarExpand}
+      <>
+        <Head>
+          <title>AKTU Exam Preparation</title>
+          <meta
+            name="description"
+            content="Website to help you with AKTU Exam Preparations"
           />
-          <ChaptersList
-            chapters={selectionChoices.chapters}
-            expanded={sidebarExpanded}
-            handleCollapse={handleSidebarCollapse}
-          />
-          <main className={styles.container}>
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-              {markdownText}
-            </ReactMarkdown>
-          </main>
-        </>
-      )}
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <Header
+          {...selectionChoices}
+          sidebarExpandHandler={handleSidebarExpand}
+        />
+        <ChaptersList
+          chapters={selectionChoices.chapters}
+          expanded={sidebarExpanded}
+          handleCollapse={handleSidebarCollapse}
+        />
+        <main className={styles.container}>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {markdownText}
+          </ReactMarkdown>
+        </main>
+      </>
     </SelectionContext.Provider>
   );
 };
