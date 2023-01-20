@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  basePath: "/aktu-exam-preparation",
+  basePath: "/aep",
   webpack: (config) => {
     config.module.rules.push({
       test: /\.md$/,
