@@ -74,10 +74,18 @@ th {
 
 @media print {
   main,
+  .hidden,
   .container,
+  select,
+  option,
   svg {
     display: none;
   }
+
+  * {
+    border: 0 !important;
+  }
+
   .print-not-allowed {
     position: absolute;
     top: 0;
