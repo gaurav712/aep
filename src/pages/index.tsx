@@ -155,9 +155,15 @@ const Home = () => {
           handleCollapse={handleSidebarCollapse}
         />
         <main className={styles.container}>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {markdownText}
-          </ReactMarkdown>
+          {selection.chapter ? (
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {markdownText}
+            </ReactMarkdown>
+          ) : (
+            <div className={styles.contentNotSelected}>
+              {"No subject/chapter selected!"}
+            </div>
+          )}
         </main>
       </>
     </SelectionContext.Provider>
