@@ -32,12 +32,23 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.headerText {
   font-size: 2rem;
 }
 
 .collapseIcon {
   transform: rotate(90deg);
   cursor: pointer;
+}
+
+.subjectNotSelected {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  top: 50vh;
+  text-align: center;
 }
 
 .chaptersList {

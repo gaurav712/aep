@@ -27,7 +27,15 @@ const ChaptersList = ({
         }
       >
         <div className={styles.header}>
-          <>Chapters</>
+          {selectionContext?.selection.subject ? (
+            <div className={styles.headerText}>Chapters</div>
+          ) : (
+            <div className={styles.subjectNotSelected}>
+              {
+                "Select a combination of branch, scademic year and subject to view chapters!"
+              }
+            </div>
+          )}
           <svg
             className={styles.collapseIcon}
             onClick={handleCollapse}
