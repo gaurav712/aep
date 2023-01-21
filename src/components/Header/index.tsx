@@ -111,7 +111,11 @@ const Header = ({
               ))}
             </select>
             <select
-              className={styles.selectPicker}
+              className={
+                selectionContext?.selection.branch
+                  ? styles.selectPicker
+                  : `${styles.selectPicker} ${styles.selectPickerDisabled}`
+              }
               onChange={(event: ChangeEvent<HTMLSelectElement>) =>
                 handleYearChange(event.target.value, selectionContext)
               }
@@ -123,7 +127,11 @@ const Header = ({
               ))}
             </select>
             <select
-              className={styles.selectPicker}
+              className={
+                selectionContext?.selection.year
+                  ? styles.selectPicker
+                  : `${styles.selectPicker} ${styles.selectPickerDisabled}`
+              }
               onChange={(event: ChangeEvent<HTMLSelectElement>) =>
                 handleSubjectChange(event.target.value, selectionContext)
               }

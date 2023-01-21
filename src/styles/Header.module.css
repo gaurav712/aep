@@ -54,6 +54,11 @@
   padding-right: 2rem !important;
 }
 
+.selectPickerDisabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
 .expandIcon {
   cursor: pointer;
 }
