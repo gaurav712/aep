@@ -161,7 +161,7 @@ const Home = () => {
             </ReactMarkdown>
           ) : (
             <div className={styles.contentNotSelected}>
-              {"No subject/chapter selected!"}
+              {"Select a chapter to view its contents."}
             </div>
           )}
         </main>
