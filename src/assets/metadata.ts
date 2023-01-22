@@ -10,6 +10,7 @@ const metadata: MetaDataType = {
         Enterpreneurship: "/CSE-IV/Enterpreneurship/1.md",
         "Enterpreneurial Idea & Innovation": "/CSE-IV/Enterpreneurship/2.md",
         "Project Management": "/CSE-IV/Enterpreneurship/3.md",
+        "Project Financing": "/CSE-IV/Enterpreneurship/4.md",
       },
     },
   },
