@@ -6,6 +6,8 @@
 
 You can raise a PR directly for any content addition. We'll review it and publish it once validated.
 
+**Documents should use markdown. Take a look at https://markdown-editor.github.io for example.**
+
 **One shall mention proper attributions if any resource, textual or otherwise, resembles something pre-existing.**
 
 **Content can only if added if it uses information available in the public domain. We can't allow copyrighted material.**
