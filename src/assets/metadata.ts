@@ -8,6 +8,7 @@ const metadata: MetaDataType = {
     "IV Year": {
       "Big Data": {
         "Introduction to Big Data": "/CSE-IV/BigData/1.md",
+        Hadoop: "/CSE-IV/BigData/1.md",
       },
       "Enterpreneurship & Project Management": {
         Enterpreneurship: "/CSE-IV/Enterpreneurship/1.md",
